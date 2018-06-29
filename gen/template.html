@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+  <head>
+    <title>{shorttitle}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{stylesheetpath}">
+    <base href="./">
+  </head>
+
+  <body>
+    <header id="logo">
+      Benedict W. Randall Shaw
+    </header>
+    <nav>
+      {parents}
+    </nav>
+    <header id="title">
+      {title}
+    </header>
+    {toc}
+
+    <main>
+      {content}
+    </main>
+    
+    <?php include_once("snippets/footersnippet.php"); ?>
+  </body>
+
+</html>
