@@ -66,7 +66,7 @@ def make_webtoc(folder,depth,relative=None):
     #prepare hand-me-down depth
     newdepth=depth-1 if type(depth)==int else depth
     #make `webtoc`
-    webtoclist=[' 1. <a href={} class="webtoci">{}</a>'.format(os.path.relpath(f["path"],relative),f["name"])+nest_webtoc(make_webtoc(f["path"],newdepth,relative)) for f in contents]
+    webtoclist=[' - <a href={} class="webtoci">{}</a>'.format(os.path.relpath(f["path"],relative),f["name"])+nest_webtoc(make_webtoc(f["path"],newdepth,relative)) for f in contents]
     return "\n".join(webtoclist)
 
 #convert a page of Markdown in `data` to a page of HTML in `web`
@@ -82,11 +82,14 @@ def make_page(folder):
     #get the tab title
     shorttitle=metadata["title"]["short"]
     
-    #get the actual content, with the pagetoc if sought
+    #add the pagetoc
     if metadata["pagetoc"]>0:
-        content=pypandoc.convert_file(mdpath,"html", extra_args=["--toc","--toc-depth={}".format(int(metadata["pagetoc"]))])
+        content=pypandoc.convert_file(mdpath,"md", extra_args=["-s","--toc","--toc-depth={}".format(int(metadata["pagetoc"]))])
     else:
-        content=pypandoc.convert_file(mdpath,"html")
+        content=pypandoc.convert_file(mdpath,"md")
+
+    #make the HTML
+    content=pypandoc.convert_text(content,"html",format="md")
 
     #get the relative path to the stylesheet
     stylesheetpath=os.path.relpath("main.css",folder)
@@ -126,8 +129,8 @@ def make_page(folder):
     elif metadata["webtoc"]=="deep": depth=True
     else: depth=int(metadata["webtoc"])
     #make the webtoc
-    webtoc=make_webtoc(folder,depth)
-    if webtoc!="": webtoc='<div id="webtoc">{}</div>\n<hr>'.format(webtoc)
+    webtoc=pypandoc.convert_text(make_webtoc(folder,depth),"html",format="md")
+    if set(webtoc) not in ({" "}, set(), {"\n"}, {" ","\n"}): webtoc='<div id="webtoc">{}</div>\n<hr>'.format(webtoc)
 
     return template.format(shorttitle=shorttitle,stylesheetpath=stylesheetpath,parents=parents,title=title,webtoc=webtoc,content=content)
 
