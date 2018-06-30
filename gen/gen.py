@@ -67,6 +67,7 @@ def make_webtoc(folder,depth,relative=None):
     newdepth=depth-1 if type(depth)==int else depth
     #make `webtoc`
     webtoclist=[' 1. <a href={} class="webtoci">{}</a>'.format(os.path.relpath(f["path"],relative),f["name"])+nest_webtoc(make_webtoc(f["path"],newdepth,relative)) for f in contents]
+    return "\n".join(webtoclist)
 
 #convert a page of Markdown in `data` to a page of HTML in `web`
 def make_page(folder):
