@@ -10,18 +10,19 @@
   </head>
 
   <body>
-    <header id="logo">
-      Benedict W. Randall Shaw
-    </header>
-    <nav>
-      {parents}
-    </nav>
-    {webtoc}
-    <header id="title">
-      {title}
-    </header>
-
+    <div id="topblock">
+      <div id="topmatter">
+	<header id="logo">
+	  Benedict W. Randall Shaw
+	</header>
+	{parents}
+      </div>
+    </div>
     <main>
+      {webtoc}
+      <header id="title">
+	{title}
+      </header>
       {content}
     </main>
   </body>

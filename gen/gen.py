@@ -107,8 +107,11 @@ def make_page(folder):
     print("parentpaths:",parentpaths)
     for path in parentpaths:
         pathdata=get_metadata(os.path.join(path,"metadata.json"))
-        parents.append('<a class="parent" href="{}">{}</a>/'.format(os.path.relpath(path,folder),pathdata["title"]["parent"]))
-    parents="".join(parents)
+        parents.append('<a class="parent" href="{}">{}</a> /'.format(os.path.relpath(path,folder),pathdata["title"]["parent"]))
+    if len(parents)!=0:
+        parents="<nav>"+" ".join(parents)+"</nav>"
+    else:
+        parents=""
 
     #maketitle
     titlehtml='<h1 class="titletext">{}</h1>'.format(metadata["title"]["text"])
@@ -124,6 +127,7 @@ def make_page(folder):
     else: depth=int(metadata["webtoc"])
     #make the webtoc
     webtoc=make_webtoc(folder,depth)
+    if webtoc!="": webtoc='<div id="webtoc">{}</div>\n<hr>'.format(webtoc)
 
     return template.format(shorttitle=shorttitle,stylesheetpath=stylesheetpath,parents=parents,title=title,webtoc=webtoc,content=content)
 
