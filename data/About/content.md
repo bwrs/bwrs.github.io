@@ -1,13 +1,13 @@
 I can usually be contacted at `benedictrandallshaw@gmail.com`, although I may not read the email immediately^[or, if I my inbox has been sufficiently cluttered by petitions, at all].
 
-#Olympiads[^1]
+# Olympiads
 As a combined result of some personal skill and some not inconsiderable serendipity:
 
- - I have been selected for the UK team of six competing in the *International Mathematics Olympiad*, 2018.
+ - I have been selected for the UK team of six competing in the *International Mathematics Olympiad*[^1], 2018.
  - I received an honourable mention in the *Romanian Masters of Mathematics*^[an Olympiad of difficulty comparable to the IMO], 2018.
  - I was a reserve for the UK team of four for the *International Olympiad in Informatics*^[an Olympiad which mostly focuses on algorithm design], 2017.
 
-#Hobbies
+# Hobbies
 
  - I claim that bellringing and lawn bowls are sports, and am therefore quite "sporty"[^2].
  - I write articles mathematic and otherwise for [the Librarian](https://librarian.cf), a school publication run by [Joshua Loo](https://joshualoo.net).
