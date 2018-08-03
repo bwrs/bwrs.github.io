@@ -12,7 +12,6 @@ body {
 }
 
 #topmatter, main {
-    min-width: 80ch;
     max-width: 80%;
     margin: auto;
 }
@@ -28,7 +27,7 @@ body {
 }
 
 a {
-    color: #555555;
+    color: #008888;
     text-decoration: none;
 }
 
