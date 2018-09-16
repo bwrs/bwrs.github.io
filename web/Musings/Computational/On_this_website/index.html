@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+  <head>
+    <title>On this website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <base href="./">
+  </head>
+
+  <body>
+    <div id="topblock">
+      <div id="topmatter">
+	<header id="logo">
+	  Benedict Randall Shaw
+	</header>
+	<nav><a class="parent" href="../../..">Home</a> / <a class="parent" href="../..">Musings</a> / <a class="parent" href="..">Computational</a> /</nav>
+      </div>
+    </div>
+    <main>
+      
+
+      <header id="title">
+	<h1 class="titletext">On this website</h1>
+
+<h2 class="titlesub">Static generation and page bloat</h2>
+
+<h4 class="titleauthordate">2018-09-16</h4>
+      </header>
+      <ul>
+<li><a href="#page-sizes">Page sizes</a>
+<ul>
+<li><a href="#is-that-big">Is that big?</a></li>
+<li><a href="#is-that-too-big">Is that too big?</a></li>
+<li><a href="#is-this-the-raving-of-a-lunatic">Is this the raving of a lunatic?</a></li>
+<li><a href="#this-webpage">This webpage</a></li>
+<li><a href="#in-the-general-case">In the general case</a></li>
+</ul></li>
+<li><a href="#static-webpages">Static webpages</a></li>
+<li><a href="#see-also">See also</a></li>
+</ul>
+<h1 id="page-sizes">Page sizes</h1>
+<p>The median desktop webpage, in this day and age, is a little over 1.5MB<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>; the median mobile page is 1.3MB.</p>
+<h2 id="is-that-big">Is that big?</h2>
+<p>By historical standards, this is excessive. In 2010, the average page size was just half a megabyte. These days, the median mobile page is the same size as the compressed<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> text of both the Bible and the Quran, and the desktop page is large enough to fit the Book of Mormon as well.</p>
+<h2 id="is-that-too-big">Is that too big?</h2>
+<p>The majority of these sites are serving mostly text; such text probably doesn't exceed 10KB in the majority cases. Rather, the page is bulked by adverts, excessively high-resolution images, and superfluous use of entire Javascript libraries.</p>
+<h2 id="is-this-the-raving-of-a-lunatic">Is this the raving of a lunatic?</h2>
+<p>Probably; but it is nevertheless of import. For a person like the author, on a humble mobile data package of 1GB each month, I am thus limited to about 26 webpages of median size per day; this is terribly inconvenient.</p>
+<h2 id="this-webpage">This webpage</h2>
+<p>I indulge myself by forcing you to download a Google font in order to read this page properly; however, this font is only 200KB, so even when you download this, this webpage is 7 times smaller than the median.</p>
+<p>However, this font is cached for a year; so excluding this yearly download, this webpage is not significantly worse than raw text<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, and is at least 100 times smaller than the average webpage. At this size, on my 1GB monthly plan, I would be able to read at least three long<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> pages per minute of my waking life.</p>
+<h2 id="in-the-general-case">In the general case</h2>
+<p>For a smaller, and thus faster, webpage, it usually helps to avoid large JS libraries, and superfluous or large images. Ideally, adverts ought not to be used, as - they are designed to distract from the page - they increase file size and load times significantly - they are blocked anyway - Patreon &amp;c. exist.</p>
+<h1 id="static-webpages">Static webpages</h1>
+<p>These give better performance, security, &amp;c.; this is well-documented. Website generators exist for this sort of thing; this webpage uses (an original<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> website generator)[https://github.com/bwrs/bwrs.github.io].</p>
+<h1 id="see-also">See also</h1>
+<ul>
+<li>(Joshua Loo's writings on his own webpage, which is laid out in a ridiculous fashion)[https://joshualoo.net/#meta]</li>
+</ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>The HTTP Archive</em>, accessed 2018-09-16.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>using standard algorithms<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>although it uses <code>pandoc</code> to produce the HTML, which is perhaps sometimes excessively verbose.<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>i.e. containing a lot of content<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>modulo a reliance on <code>pandoc</code><a href="#fnref5">↩</a></p></li>
+</ol>
+</div>
+
+    </main>
+  </body>
+
+</html>
