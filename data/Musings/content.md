@@ -1,0 +1,1 @@
+Periodically, I have thoughts. On the rare occasion that the thought in question is not along the lines of "I should like some more tea", "I should like some more cake", or "I should like some more chocolate", and is of sufficient interest, I may type it up. Often, it then passes to [the Librarian](https://librarian.cf); but when it does not, it may find its way hither.

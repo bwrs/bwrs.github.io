@@ -4,15 +4,14 @@ I can usually be contacted at `benedictrandallshaw@gmail.com`, although I may no
 As a combined result of personal skill and serendipity:
 
  - I won a silver medal in the *International Mathematics Olympiad*[^1], 2018.
- - I received an honourable mention in the *Romanian Masters of Mathematics*^[an Olympiad of difficulty comparable to the IMO], 2018.
  - I won a gold medal in the *International Linguistics Olympiad*, 2018.
+ - I received an honourable mention in the *Romanian Masters of Mathematics*^[an Olympiad of difficulty comparable to the IMO], 2018.
  - I was a reserve for the UK team of four for the *International Olympiad in Informatics*^[an Olympiad which mostly focuses on algorithm design], 2017.
 
-# Hobbies
+# Miscellany
 
- - I claim that bellringing and lawn bowls are sports, and am therefore quite "sporty"[^2].
+ - Despite having been born into the 21st century, I can occasionally be found ringing bells[^2], playing lawn bowls, and binding books.
  - I write articles mathematic and otherwise for [the Librarian](https://librarian.cf), a school publication run by [Joshua Loo](https://joshualoo.net).
- - I dabble in bookbinding, and, to a lesser extent, debating.
 
 [^1]: From [Wikipedia](https://en.wikipedia.org/wiki/International_Science_Olympiad):
 
