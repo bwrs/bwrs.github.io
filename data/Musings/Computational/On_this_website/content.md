@@ -30,8 +30,8 @@ For a smaller, and thus faster, webpage, it usually helps to avoid large JS libr
 
 # Static webpages
 
-These give better performance, security, &c.; this is well-documented. Website generators exist for this sort of thing; this webpage uses (an original^[modulo a reliance on `pandoc`] website generator)[https://github.com/bwrs/bwrs.github.io].
+These give better performance, security, &c.; this is well-documented. Website generators exist for this sort of thing; this webpage uses [an original^[modulo a reliance on `pandoc`] website generator](https://github.com/bwrs/bwrs.github.io).
 
 # See also
 
- - (Joshua Loo's writings on his own webpage, which is laid out in a ridiculous fashion)[https://joshualoo.net/#meta]
+ - [Joshua Loo's writings on his own webpage, which is laid out in a ridiculous fashion](https://joshualoo.net/#meta)
