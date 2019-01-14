@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i&subset=latin-ext');
+
+body {
+    font: 1.2em/1.62 Lato;
+}
+
+#topmatter {
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 5%;
+    display: block;
+}
+
+#topmatter, main {
+    max-width: 80%;
+    margin: auto;
+}
+
+#topblock {
+    background-color: #999999;
+}
+
+#logo {
+    font-variant: small-caps;
+    text-align: right;
+    font-size: 150%;
+}
+
+a {
+    color: #008888;
+    text-decoration: none;
+}
+
+nav {
+    padding: 0.5ch 2ch;
+    background-color: #CCCCCC;
+}
