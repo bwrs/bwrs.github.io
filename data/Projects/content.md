@@ -1,0 +1,1 @@
+Frequently, hare-brained schemes strike me; and occasionally, merely impracticable schemes strike me; but I theorise that one day a workable scheme will strike me. Schemes of the last two categories sometimes find their way into this section of the website if their pursuit seems fruitful.
