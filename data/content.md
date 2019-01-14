@@ -5,7 +5,3 @@ I (somewhat) frequently write for [the Librarian](https://librarian.cf), as does
 I am [somewhat capable mathematically and linguistically](About#Olympiads).
 <hr>
 My email addresses include `benedictrandallshaw@gmail.com`, and, at least until 2020, `benedict.randallshaw@westminster.org.uk`.
-<hr>
-I am the proud owner of a [Github account](https://github.com/bwrs).
-<hr>
-I am [mildly ridiculous](About#Hobbies).

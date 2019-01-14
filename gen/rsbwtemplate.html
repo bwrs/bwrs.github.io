@@ -2,10 +2,11 @@
 <html lang="en-GB">
 
   <head>
-    <title>Computational musings</title>
+    <title>{shorttitle}</title>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="{stylesheetpath}">
     <base href="./">
   </head>
 
@@ -15,20 +16,15 @@
 	<header id="logo">
 	  Benedict Randall Shaw
 	</header>
-	<nav><a class="parent" href="../..">Home</a> / <a class="parent" href="..">Musings</a> /</nav>
+	{parents}
       </div>
     </div>
     <main>
-      <div id="webtoc"><ul>
-<li><a href=On_this_website class="webtoci">On this website</a></li>
-</ul>
-</div>
-<hr>
+      {webtoc}
       <header id="title">
-	<h1 class="titletext">Computational</h1>
+	{title}
       </header>
-      
-
+      {content}
     </main>
   </body>
 
