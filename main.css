@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i,900,900i&subset=latin-ext');
 
 body {
-    font: 1.2em/1.62 Lato;
+    font: 400 16px/1.5 Merriweather;
 }
 
 #topmatter {
@@ -12,17 +12,14 @@ body {
 }
 
 #topmatter, main {
-    max-width: 80%;
+    max-width: 40em;
     margin: auto;
 }
 
-#topblock {
-    background-color: #999999;
-}
-
 #logo {
+    font: 900 16px/1.5 Merriweather;
     font-variant: small-caps;
-    text-align: right;
+    text-align: left;
     font-size: 150%;
 }
 
@@ -32,6 +29,6 @@ a {
 }
 
 nav {
-    padding: 0.5ch 2ch;
-    background-color: #CCCCCC;
+    font: 700 16px/1.5 Merriweather;
+    padding: 1ch 0ch;
 }
