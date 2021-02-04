@@ -130,7 +130,7 @@ def make_page(folder):
     else: depth=int(metadata["webtoc"])
     #make the webtoc
     webtoc=pypandoc.convert_text(make_webtoc(folder,depth),"html",format="md")
-    if set(webtoc) not in ({" "}, set(), {"\n"}, {" ","\n"}): webtoc='<div id="webtoc">{}</div>\n<hr>'.format(webtoc)
+    if set(webtoc) not in ({" "}, set(), {"\n"}, {" ","\n"}): webtoc='<div id="webtoc">{}</div>'.format(webtoc)
 
     return template.format(shorttitle=shorttitle,stylesheetpath=stylesheetpath,parents=parents,title=title,webtoc=webtoc,content=content)
 
