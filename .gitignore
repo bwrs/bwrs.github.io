@@ -1,3 +1,4 @@
 # Ignore backups and emacs extraneous things
 **/*~
 **/\#*\#
+.DS_Store
