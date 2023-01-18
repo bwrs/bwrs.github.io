@@ -1,5 +1,5 @@
 (he/him)
 
-I am a second-year maths student at Trinity College, Cambridge, where I am also a bass in the [choir](http://trinitycollegechoir.com).
+I am a third-year maths student at Trinity College, Cambridge, where I am also a bass in the [college choir](http://trinitycollegechoir.com), and vice-president of the [music society](https://www.tcms.org.uk). I am also president of the [university chamber choir](https://www.cmp.cam.ac.uk/cambridge-university-chamber-choir), and junior treasurer of both the [university opera society](http://www.cuos.co.uk) and local branch of [Sing Inside](https://www.singinside.org), a charity working in prisons.
 
-My email addresses include `benedictrandallshaw@gmail.com` and `bwr26@cam.ac.uk`. I can also be contacted on many major social media platforms. I am usually happy for people to get in touch, but occasionally miss messages; in such cases, I apologise profusely and recommend you send a follow-up.
+My email addresses are `benedictrandallshaw@gmail.com` and `bwr26@cam.ac.uk`. I can also be contacted on many major social media platforms. I am usually happy for people to get in touch, but occasionally miss messages; in such cases, I apologise profusely and recommend you send a follow-up.
