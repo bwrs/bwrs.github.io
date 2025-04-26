@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i&subset=latin-ext');
+      body {
+	  font: 400 16px/1.5 Lato;
+      }
+      span.minor {
+	  color: rgb(112,112,112);
+	  font-style: italic;
+	  font-size: smaller;
+      }
+      span.major {
+	  color: black;
+	  font-weight: bold;
+	  font-size: larger;
+      }
+      span.royal {
+	  font-variant: smallcaps;
+	  font-weight: bold;
+	  color: black;
+	  font-size: 
+	      
+      }
+      span.operations {
+	  font-size: larger;
+      }
+      div.programmeItem, div#generalInfo {
+	  border: 2px solid black;
+	  border-radius: 10px;
+	  border-collapse: separate;
+	  border-spacing: 10px;
+	  margin: 10px;
+	  padding: 10px;
+	  background-color: rgb(240,240,240);
+      }
+      div.movementItem {
+	  border: 2px solid black;
+	  border-radius: 10px;
+	  border-collapse: separate;
+	  border-spacing: 10px;
+	  margin: 10px;
+	  padding: 10px;
+	  background-color: rgb(224,224,224);
+      }
+      hr.within {
+	  border-color: rgb(192,192,192);
+      }
+      button {
+	  font: 400 16px/1.5 Lato;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>TCMS Content Management System</h1>
+    <p>TCMS is introducing a new system to aid the production of programmes, cobbled together by Benedict Randall Shaw. We make about a hundred different programmes in a year. Historically, the performer has sent details to the vice-president, who has painstakingly made a nice programme before uploading them to the website and rushing off to print them. This used to be a huge amount of work over the year, and this form reduces that by automating the typesetting.</p>
+
+    <p><i>Using this form.</i> The vice-president will probably have sent you a link to this form. Fill it in, and then hit the button labelled 'Download programme data' to download a file with your info. Send this to the vice-president. <b>Please note that if you shut the tab, or shut the window, this form probably won't remember your data.</b> It's probably safest to fill it in in one sitting.</p>
+
+    <p>If you need stuff in your programme that this form can't provide, fill in as much as you can and download that. Then send that to the vice-president and also to me (my CRSID is bwr26) with a note on what else you need. </p>
+
+    <p>This form is still in beta testing. If it fails, I'm really sorry. Please tell me about any errors or bugs, either using a messaging service or my email (again, my CRSID is bwr26).</p>
+
+    <h2>General information</h2>
+
+    <p><i>Concert name</i> will be the title that appears at the top of your concert. If it's a small number of performers and you just want to list who's performing, write something like 'Benedict Randall Shaw, baritone, and Gus Cox, piano' in that box. Please use that 'name, instrument' format so the system can identify it.</p>
+    <p><i>Time</i> and <i>date</i> are simple. Write the start time you've agreed with TCMS. If you put something else, it won't reschedule your concert, it will just make the programme wrong.</p>
+    <p><i>Location</i> again should be as agreed with TCMS already. Usually this will be Chapel, OCR, or sometimes Antechapel. If it's in Chapel or Antechapel, your concert will likely be streamed, so tick that box unless you've agreed otherwise. We need this information for GDPR. We don't usually stream other locations.</p>
+    <p>If you have several <i>performers</i> on the same instrument, put them in the same box and separate the names by commas. If you want to put a gap between groups of performers (e.g. between families in an orchestra), add a performer and leave it entirely blank. Performers will appear in the order yuo write them in.</p>
+    <p><i>Primary</i> performers are the performers that will appear right at the top of the programme. There should only be a few of them. If it's chamber music, or soloist and piano, choose this for all your performers. If it's something larger, choose the conductor and any important soloists (e.g. concerto soloists).</p>
+    <p>We don't usually have <i>programme notes</i>, so don't feel any pressure to write any, but if you really want to the option's there.
+    <div id="generalInfo">
+      <span class="major">Concert name:</span>
+      <input type="text" class="inConcertName" size="48" value=""><br />
+      <span class="major">Time:</span>
+      <input type="text" class="inConcertHour" size="2" value=""> : <input type="text" class="inConcertMinute" size="2" value=""> pm<br />
+      <span class="major">Date:</span>
+      <span class="minor">DD</span>
+      <input type="text" class="inConcertDay" size="2" value="">
+      <span class="minor">MM</span>
+      <input type="text" class="inConcertMonth" size="2" value="">
+      <span class="minor">YYYY</span>
+      <input type="text" class="inConcertYear" size="4" value=""><br />
+      <span class="major">Location:</span>
+      <select class="inLocation"><option value="Chapel" selected>Chapel</option><option value="OCR">OCR</option><option value="Antechapel">Antechapel</option><option value="Winstanley">Winstanley</option><option value="Frazer Room">Frazer Room</option><option value="Hall">Hall</option><option value="Wren Library">Wren Library</option></select>
+      <span classs="major">Streamed?</span>
+      <input type="checkbox" class="inStreamed"></br>
+      <span class="major">Performers:</span>
+      <div class="performers">
+	<div class="performerItem">
+	  <span class="minor">name(s)</span>
+	  <input type="text" class="inPerformerName" size="48" value="">
+	  <span class="minor">instrument</span>
+	  <input type="text" class="inPerformerInstrument" size="16" value="">
+	  <span class="minor">primary?</span>
+	  <input type="checkbox" class="inPrimaryPerformer">
+	  <button onclick="deletePerformer(this)">Delete performer</button>
+	</div><button onclick="addPerformer(this)">Add performer</button>
+      </div>
+      <span class="buttonEnableProgrammeNotes"><button onclick="enableProgrammeNotes(this)">Add programme notes</button></span><span class="programmeNotes" enabled="false"></span>
+      
+    </div>
+
+    <h2>List of pieces</h2>
+
+    <p>This is fairly straightforward. Please give the dates of composers, it usually only takes a few seconds to look them up (if they're still alive leave <i>death</i> blank). Ideally add opus numbers etc as well (definitiely add BWV numbers).</p>
+    <p>Most of the rest of this is fairly clear, again no pressure to add lyrics or translations unless you want to. The <i>larger work</i> thing is if you're playing just one movement of something, e.g. <i>Mein teurer Heiland</i>, No. 32 from the St John Passion, BWV 248. You can leave the number blank if you want to.</p>
+    <p>When adding <i>movements</i>, submit the numbers as digits rather than Roman numerals, i.e. "3" instead of "III". You can choose this <i>style</i> separately.</p>
+    <p>I think the only confusing thing is movement <i>types</i>. <b>You should only add these for cantatas, where the type should be something like 'aria', or 'chorus', or 'recitative'.</b> It triggers a non-standard formatting which is a bit of a work-in-progress. There might be another use case but I don't know what it is.</p>
+    <p>You can add <i>soloists</i> to individual pieces, for things like concerts with different players between pieces, or to individual movements, for things like cantata arias. You can add <i>lyrics</i> and <i>translations</i> to individual movements for things like cantatas and song cycles.</p>
+    <p>I don't know when you'd need to add <i>other information</i>. In fact, ideally don't do it unless you really feel the need.</p>
+
+    <div id="programmeContents"><button onclick="addProgrammeItemBefore(this)">Insert item</button><div class="programmeItem">
+	<div class="leftMatter">
+	  <span class="composer">
+            <span class="major">Composer:</span>
+	    <span class="minor">first names</span>
+	    <input type="text" class="inComposerFirstName" size="16" value="">
+	    <span class="minor">surname</span>
+	    <input type="text" class="inComposerSurname" size="16" value="">
+	    (<span class="minor">birth</span>
+	    <input type="text" class="inBirthYear" size="4" value="">
+	    &ndash; <span class="minor">death</span>
+	    <input type="text" class="inDeathYear" size="4" value="">)
+	  </span><span class="operations">
+	    <button onclick="deleteItem(this)">Delete item</button>
+	    <button onclick="copyComposerFromPrevious(this)">Copy composer from previous item</button>
+	    <span class="buttonEnableArranger"><button onclick="enableArranger(this)">Add arranger</button></span>
+	  </span><span class="arranger" enabled="false"></span>
+	</div><hr class="within">
+	<div class="rightMatter">
+	  <span class="item">
+	    <span class="major">Item:</span>
+	    <span class="minor">name</span>
+	    <input type="text" class="inItemName" size="48" value="">
+	  </span><span class="operations">
+	    <span class="buttonEnableLargerWork"><button onclick="enableLargerWork(this)">This is a movement from a larger work</button></span>
+	    <span class="buttonEnableLyrics"><button onclick="enableLyrics(this)">Add lyrics</button></span>
+	    <span class="buttonEnableTranslation"><button onclick="enableTranslation(this)">Add translation</button></span>
+	    <span class="buttonEnableMovements"><button onclick="enableMovements(this)">Add movements</button></span>
+	    <span class="buttonEnableSoloists"><button onclick="enableSoloists(this)">Add soloists</button></span>
+	    <span class="buttonEnableOtherInfo"><button onclick="enableOtherInfo(this)">Add other information</button></span>
+	  </span><span class="fromLargerWork" enabled="false"></span><span class="lyrics" enabled="false"></span><span class="translation" enabled="false"></span><span class="movements" enabled="false"></span><span class="soloists" enabled="false"></span><span class="otherInfo" enabled="false"></span>
+	</div>
+      </div><button onclick="addProgrammeItemBefore(this)">Add item</button></div>
+    
+
+    <h2>Complete form</h2>
+
+    <p>Please quickly check there aren't any typos, as we might not have time to check everything super carefully! Once you've done that, press the button below to download your data, and then send the file you download to the vice-president. Thank you for using this form! It really saves us a lot of time.</p>
+
+    <button onclick="downloadProgramme()">Download programme data</button>
+    
+
+    <script>
+      function childByClass(parentNode,c) {
+	  for (var i = 0; i < parentNode.childNodes.length; i++) {
+	      if (parentNode.childNodes[i].className==c) {
+		  return parentNode.childNodes[i];
+	      }
+	  }
+	  return null;
+      }
+      function lastChildByClass(parentNode,c) {
+	  for (var i = parentNode.childNodes.length-1; i>=0; i=i-1) {
+	      if (parentNode.childNodes[i].className==c) {
+		  return parentNode.childNodes[i];
+	      }
+	  }
+	  return null;
+      }
+      function addProgrammeItemBefore(clickedButton) {
+	  const programmeContents=clickedButton.parentNode;
+	  const newProgrammeItem = document.createElement("div");
+	  newProgrammeItem.className="programmeItem";
+	  newProgrammeItem.innerHTML='\n	<div class="leftMatter">\n	  <span class="composer">\n            <span class="major">Composer:</span>\n	    <span class="minor">first names</span>\n	    <input type="text" class="inComposerFirstName" size="16" value="">\n	    <span class="minor">surname</span>\n	    <input type="text" class="inComposerSurname" size="16" value="">\n	    (<span class="minor">birth</span>\n	    <input type="text" class="inBirthYear" size="4" value="">\n	    &ndash; <span class="minor">death</span>\n	    <input type="text" class="inDeathYear" size="4" value="">)\n	  </span><span class="operations">\n	    <button onclick="deleteItem(this)">Delete item</button>\n	    <button onclick="copyComposerFromPrevious(this)">Copy composer from previous item</button>\n	    <span class="buttonEnableArranger"><button onclick="enableArranger(this)">Add arranger</button></span>\n	  </span><span class="arranger" enabled="false"></span>\n	</div><hr class="within">\n	<div class="rightMatter">\n	  <span class="item">\n	    <span class="major">Item:</span>\n	    <span class="minor">name</span>\n	    <input type="text" class="inItemName" size="48" value="">\n	  </span><span class="operations">\n	    <span class="buttonEnableLargerWork"><button onclick="enableLargerWork(this)">This is a movement from a larger work</button></span>\n	    <span class="buttonEnableLyrics"><button onclick="enableLyrics(this)">Add lyrics</button></span>\n	    <span class="buttonEnableTranslation"><button onclick="enableTranslation(this)">Add translation</button></span>\n	    <span class="buttonEnableMovements"><button onclick="enableMovements(this)">Add movements</button></span>\n	    <span class="buttonEnableSoloists"><button onclick="enableSoloists(this)">Add soloists</button></span>\n	    <span class="buttonEnableOtherInfo"><button onclick="enableOtherInfo(this)">Add other information</button></span>\n	  </span><span class="fromLargerWork" enabled="false"></span><span class="lyrics" enabled="false"></span><span class="translation" enabled="false"></span><span class="movements" enabled="false"></span><span class="soloists" enabled="false"></span><span class="otherInfo" enabled="false"></span>\n	</div>\n      ';
+	  const newButton = document.createElement("button");
+	  newButton.setAttribute("onclick","addProgrammeItemBefore(this)");
+	  newButton.innerHTML="Insert item";
+	  programmeContents.insertBefore(newButton,clickedButton);
+	  programmeContents.insertBefore(newProgrammeItem,clickedButton);
+      }
+      function deleteItem(clickedButton) {
+	  const programmeItem=clickedButton.parentNode.parentNode.parentNode;
+	  const programmeContents=programmeItem.parentNode;
+	  programmeContents.removeChild(programmeItem.previousSibling);
+	  programmeContents.removeChild(programmeItem);
+      }
+      function copyComposerFromPrevious(clickedButton) {
+	  const programmeItem=clickedButton.parentNode.parentNode.parentNode;
+	  const previousItem=programmeItem.previousSibling.previousSibling;
+	  if (previousItem!=null) {
+	      if (previousItem.className=="programmeItem") {
+		  const composer=childByClass(childByClass(programmeItem,"leftMatter"),"composer");
+		  const previousComposer=childByClass(childByClass(previousItem,"leftMatter"),"composer");
+		  const categories=["inComposerFirstName","inComposerSurname","inBirthYear","inDeathYear"];
+		  for (var i = 0; i < 4; i++) {
+		      childByClass(composer,categories[i]).value=childByClass(previousComposer,categories[i]).value;
+		  }
+	      }
+	  }
+      }
+      function enableArranger(clickedButton) {
+	  const leftMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(leftMatter,"operations"),"buttonEnableArranger");
+	  const regionToEnable=childByClass(leftMatter,"arranger");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br />\n	    <span class="major">Arranger:</span>\n	    <span class="minor">first names</span>\n	    <input type="text" class="inComposerFirstName" size="16" value="">\n	    <span class="minor">surname</span>\n	    <input type="text" class="inComposerSurname" size="16" value="">\n	    <button onclick="disableArranger(this)">Remove this section</button>\n';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function disableArranger(clickedButton) {
+	  const leftMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(leftMatter,"operations"),"buttonEnableArranger");
+	  const regionToEnable=childByClass(leftMatter,"arranger");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableArranger(this)">Add arranger</button>';
+	  }
+      }
+      function addMovement(clickedButton) {
+	  const movements=clickedButton.parentNode;
+	  var previousMovement=lastChildByClass(movements,"movementItem");
+	  const newMovementItem = document.createElement("div");
+	  newMovementItem.className="movementItem";
+	  newMovementItem.innerHTML='\n	      <span class="minor">movement number</span>\n	      <input type="text" class="inMovementNumber" size="4" value="1">\n	      <span class="minor">name</span>\n	      <input type="text" class="inMovementName" size="48" value="">\n	      <span class="operations">\n		<span class="buttonDeleteMovement"><button onclick="deleteMovement(this)">Delete movement</button></span>\n		<span class="buttonEnableType"><button onclick="enableType(this)">Add type</button></span>\n		<span class="buttonEnableLyrics"><button onclick="enableLyrics(this)">Add lyrics</button></span>\n		<span class="buttonEnableTranslation"><button onclick="enableTranslation(this)">Add translation</button></span>\n		<span class="buttonEnableSoloists"><button onclick="enableSoloists(this)">Add soloists</button></span>\n	      </span><span class="movementType" enabled="false"></span><span class="fromLargerWork" enabled="false"></span><span class="lyrics" enabled="false"></span><span class="translation" enabled="false"></span><span class="soloists" enabled="false"></span>\n	    ';
+	  if (previousMovement!=null) {
+	      var prevMvtNo = +childByClass(previousMovement,"inMovementNumber").value;
+	      childByClass(newMovementItem,"inMovementNumber").value=String(prevMvtNo+1);
+	  }
+	  movements.insertBefore(newMovementItem,clickedButton);
+      }
+      function deleteMovement(clickedButton) {
+	  const movement=clickedButton.parentNode.parentNode.parentNode;
+	  const movements=movement.parentNode;
+	  movements.removeChild(movement);
+      }
+      function addSoloist(clickedButton) {
+	  const soloists=clickedButton.parentNode;
+	  const newSoloistItem = document.createElement("div");
+	  newSoloistItem.className="soloistItem";
+	  newSoloistItem.innerHTML='\n	      <span class="minor">name</span>\n	      <input type="text" class="inSoloistName" size="48" value="">\n	      <span class="minor">instrument</span>\n	      <input type="text" class="inSoloistInstrument" size="16" value="">\n	      <button onclick="deleteSoloist(this)">Delete soloist</button>\n	    ';
+	  soloists.insertBefore(newSoloistItem,clickedButton);
+      }
+      function deleteSoloist(clickedButton) {
+	  const soloist=clickedButton.parentNode;
+	  const soloists=soloist.parentNode;
+	  soloists.removeChild(soloist);
+      }
+      function addPerformer(clickedButton) {
+	  const performers=clickedButton.parentNode;
+	  const newPerformerItem = document.createElement("div");
+	  newPerformerItem.className="performerItem";
+	  newPerformerItem.innerHTML='\n	  <span class="minor">name(s)</span>\n	  <input type="text" class="inPerformerName" size="48" value="">\n	  <span class="minor">instrument</span>\n	  <input type="text" class="inPerformerInstrument" size="16" value="">\n	  <span class="minor">primary?</span>\n	  <input type="checkbox" class="inPrimaryPerformer">\n	  <button onclick="deletePerformer(this)">Delete performer</button>\n	';
+	  performers.insertBefore(newPerformerItem,clickedButton);
+      }
+      function deletePerformer(clickedButton) {
+	  const performer=clickedButton.parentNode;
+	  const performers=performer.parentNode;
+	  performers.removeChild(performer);
+      }
+      function enableLargerWork(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableLargerWork");
+	  const regionToEnable=childByClass(rightMatter,"fromLargerWork");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br />\n		<span class="minor">number</span>\n		<input type="text" class="inLargerWorkNumber" size="4" value="">\n		<span class="minor">from larger work</span>\n		<input type="text" class="inLargerWork" size="48" value="">\n		<button onclick="disableLargerWork(this)">Remove this section</button>\n';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableLyrics(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableLyrics");
+	  const regionToEnable=childByClass(rightMatter,"lyrics");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br /><hr class="within">\n	    <span class="major">Lyrics:</span>\n	    <textarea type="text" class="inLyrics" cols="48" rows="8"></textarea>\n	    <button onclick="disableLyrics(this)">Remove this section</button>\n	  ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableTranslation(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableTranslation");
+	  const regionToEnable=childByClass(rightMatter,"translation");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br /><hr class="within">\n		<span class="major">Translation:</span>\n		<textarea type="text" class="inTranslation" cols="48" rows="8"></textarea>\n		<button onclick="disableTranslation(this)">Remove this section</button>\n	      ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableMovements(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableMovements");
+	  const regionToEnable=childByClass(rightMatter,"movements");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br /><hr class="within">\n	    <span class="major">Movements:</span> <span class="minor">style</span> <select class="inMovementStyle"><option value="I." selected>I.</option><option value="1.">1.</option></select><br />\n	    <div class="movementItem">\n	      <span class="minor">movement number</span>\n	      <input type="text" class="inMovementNumber" size="4" value="1">\n	      <span class="minor">name</span>\n	      <input type="text" class="inMovementName" size="48" value="">\n	      <span class="operations">\n		<span class="buttonDeleteMovement"><button onclick="deleteMovement(this)">Delete movement</button></span>\n		<span class="buttonEnableType"><button onclick="enableType(this)">Add type</button></span>\n		<span class="buttonEnableLyrics"><button onclick="enableLyrics(this)">Add lyrics</button></span>\n		<span class="buttonEnableTranslation"><button onclick="enableTranslation(this)">Add translation</button></span>\n		<span class="buttonEnableSoloists"><button onclick="enableSoloists(this)">Add soloists</button></span>\n	      </span><span class="movementType" enabled="false"></span><span class="fromLargerWork" enabled="false"></span><span class="lyrics" enabled="false"></span><span class="translation" enabled="false"></span><span class="soloists" enabled="false"></span>\n	    </div>\n	    <button onclick="addMovement(this)">Add movement</button>\n	    <button onclick="disableMovements(this)">Remove this section</button>\n	  ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableSoloists(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableSoloists");
+	  const regionToEnable=childByClass(rightMatter,"soloists");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br /><hr class="within">\n	    <span class="major">Soloists:</span><br />\n	    <div class="soloistItem">\n	      <span class="minor">name</span>\n	      <input type="text" class="inSoloistName" size="48" value="">\n	      <span class="minor">instrument</span>\n	      <input type="text" class="inSoloistInstrument" size="16" value="">\n	      <button onclick="deleteSoloist(this)">Delete soloist</button>\n	    </div><button onclick="addSoloist(this)">Add soloist</button>\n	    <button onclick="disableSoloists(this)">Remove this section</button>\n	  ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableOtherInfo(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableOtherInfo");
+	  const regionToEnable=childByClass(rightMatter,"otherInfo");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br /><hr class="within">\n	    <span class="major">Other information:</span>\n	    <textarea type="text" class="inOtherInfo" cols="48" rows="8"></textarea>\n	    <button onclick="disableOtherInfo(this)">Remove this section</button>\n	  ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function disableLargerWork(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableLargerWork");
+	  const regionToEnable=childByClass(rightMatter,"fromLargerWork");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableLargerWork(this)">This is a movement from a larger work</button>';
+	  }
+      }
+      function disableLyrics(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableLyrics");
+	  const regionToEnable=childByClass(rightMatter,"lyrics");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableLyrics(this)">Add lyrics</button>';
+	  }
+      }
+      function disableTranslation(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableTranslation");
+	  const regionToEnable=childByClass(rightMatter,"translation");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableTranslation(this)">Add translation</button>';
+	  }
+      }
+      function disableMovements(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableMovements");
+	  const regionToEnable=childByClass(rightMatter,"movements");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableMovements(this)">Add movements</button>';
+	  }
+      }
+      function disableSoloists(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableSoloists");
+	  const regionToEnable=childByClass(rightMatter,"soloists");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableSoloists(this)">Add soloists</button>';
+	  }
+      }
+      function disableOtherInfo(clickedButton) {
+	  const rightMatter=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(rightMatter,"operations"),"buttonEnableOtherInfo");
+	  const regionToEnable=childByClass(rightMatter,"otherInfo");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableOtherInfo(this)">Add other information</button>';
+	  }
+      }
+      function enableType(clickedButton) {
+	  const movementItem=clickedButton.parentNode.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(movementItem,"operations"),"buttonEnableType");
+	  const regionToEnable=childByClass(movementItem,"movementType");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br />\n	      <span class="minor">type</span>\n	      <input type="text" class="inMovementType" size="16" value="">\n	    <button onclick="disableType(this)">Remove this section</button>\n	  ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function enableProgrammeNotes(clickedButton) {
+	  const generalInfo=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(generalInfo,"buttonEnableProgrammeNotes");
+	  const regionToEnable=childByClass(generalInfo,"programmeNotes");
+	  if (regionToEnable.getAttribute("enabled")=="false") {
+	      regionToEnable.setAttribute("enabled","true");
+	      regionToEnable.innerHTML='<br />\n	<span class="major">Programme notes:</span>\n	<textarea type="text" class="inProgrammeNotes" cols="48" rows="8"></textarea>\n	<button onclick="disableProgrammeNotes(this)">Remove this section</button>\n      ';
+	      buttonSpan.innerHTML='';
+	  }
+      }
+      function disableType(clickedButton) {
+	  const movementItem=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(childByClass(movementItem,"operations"),"buttonEnableType");
+	  const regionToEnable=childByClass(movementItem,"movementType");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableType(this)">Add type</button>';
+	  }
+      }
+      function disableProgrammeNotes(clickedButton) {
+	  const generalInfo=clickedButton.parentNode.parentNode;
+	  const buttonSpan=childByClass(generalInfo,"buttonEnableProgrammeNotes");
+	  const regionToEnable=childByClass(generalInfo,"programmeNotes");
+	  if (regionToEnable.getAttribute("enabled")=="true") {
+	      regionToEnable.setAttribute("enabled","false");
+	      regionToEnable.innerHTML='';
+	      buttonSpan.innerHTML='<button onclick="enableProgrammeNotes(this)">Add programme notes</button>';
+	  }
+      }
+
+      function sanitise(s) {
+	  var cleans = s;
+	  for (var i = 0; i<10; i++) {
+	      c="#$%&\\^_{}~"[i];
+	      cleans=cleans.replaceAll(c,"");
+	  }
+	  return cleans
+      }
+      
+      function objectifySoloists(soloists) {
+	  var soloistsArray=[];
+	  for (var i = 0; i < soloists.childNodes.length; i++) {
+	      if (soloists.childNodes[i].className=="soloistItem") {
+		  var soloistItem=soloists.childNodes[i];
+		  var soloistObject={};
+		  soloistObject.name=sanitise(childByClass(soloistItem,"inSoloistName").value);
+		  soloistObject.instrument=sanitise(childByClass(soloistItem,"inSoloistInstrument").value);
+		  soloistsArray.push(soloistObject);
+	      }
+	  }
+	  return soloistsArray;
+      }
+      function objectifyPerformers(performers) {
+	  var performersArray=[];
+	  for (var i = 0; i < performers.childNodes.length; i++) {
+	      if (performers.childNodes[i].className=="performerItem") {
+		  var performerItem=performers.childNodes[i];
+		  var performerObject={};
+		  performerObject.name=sanitise(childByClass(performerItem,"inPerformerName").value);
+		  performerObject.instrument=sanitise(childByClass(performerItem,"inPerformerInstrument").value);
+		  performerObject.primary=String(childByClass(performerItem,"inPrimaryPerformer").checked);
+		  performersArray.push(performerObject);
+	      }
+	  }
+	  return performersArray;
+      }
+      function objectifyMovementItem(movementItem) {
+	  var movementObject={};
+	  movementObject.number=sanitise(childByClass(movementItem,"inMovementNumber").value);
+	  movementObject.name=sanitise(childByClass(movementItem,"inMovementName").value);
+	  if (childByClass(movementItem,"movementType").getAttribute("enabled")=="true") {
+	      movementObject.type=sanitise(childByClass(childByClass(movementItem,"movementType"),"inMovementType").value);
+	  }
+	  if (childByClass(movementItem,"lyrics").getAttribute("enabled")=="true") {
+	      movementObject.lyrics=sanitise(childByClass(childByClass(movementItem,"lyrics"),"inLyrics").value);
+	  }
+	  if (childByClass(movementItem,"translation").getAttribute("enabled")=="true") {
+	      movementObject.translation=sanitise(childByClass(childByClass(movementItem,"translation"),"inTranslation").value);
+	  }
+	  if (childByClass(movementItem,"soloists").getAttribute("enabled")=="true") {
+	      movementObject.soloists=objectifySoloists(childByClass(movementItem,"soloists"));
+	  }
+	  return movementObject;
+      }
+      function objectifyMovements(movements) {
+	  var movementsArray=[];
+	  for (var i = 0; i < movements.childNodes.length; i++) {
+	      if (movements.childNodes[i].className=="movementItem") {
+		  movementsArray.push(objectifyMovementItem(movements.childNodes[i]));
+	      }
+	  }
+	  return movementsArray;
+      }
+      function objectifyProgrammeItem(programmeItem) {
+	  var itemObject={};
+	  leftMatter=childByClass(programmeItem,"leftMatter");
+	  composer=childByClass(leftMatter,"composer");
+	  itemObject.composer={};
+	  itemObject.composer.firstName=sanitise(childByClass(composer,"inComposerFirstName").value);
+	  itemObject.composer.surname=sanitise(childByClass(composer,"inComposerSurname").value);
+	  itemObject.composer.birth=sanitise(childByClass(composer,"inBirthYear").value);
+	  itemObject.composer.death=sanitise(childByClass(composer,"inDeathYear").value);
+	  if (childByClass(leftMatter,"arranger").getAttribute("enabled")=="true") {
+	      arranger=childByClass(leftMatter,"arranger");
+	      itemObject.arranger={};
+	      itemObject.arranger.firstName=sanitise(childByClass(arranger,"inComposerFirstName").value);
+	      itemObject.arranger.surname=sanitise(childByClass(arranger,"inComposerSurname").value);
+	  }
+	  
+	  rightMatter=childByClass(programmeItem,"rightMatter");
+	  itemObject.name=sanitise(childByClass(childByClass(rightMatter,"item"),"inItemName").value);
+	  if (childByClass(rightMatter,"fromLargerWork").getAttribute("enabled")=="true") {
+	      itemObject.largerWork=sanitise(childByClass(childByClass(rightMatter,"fromLargerWork"),"inLargerWork").value);
+	      itemObject.largerWorkNumber=sanitise(childByClass(childByClass(rightMatter,"fromLargerWork"),"inLargerWorkNumber").value);
+	  }
+	  if (childByClass(rightMatter,"lyrics").getAttribute("enabled")=="true") {
+	      itemObject.lyrics=sanitise(childByClass(childByClass(rightMatter,"lyrics"),"inLyrics").value);
+	  }
+	  if (childByClass(rightMatter,"translation").getAttribute("enabled")=="true") {
+	      itemObject.translation=sanitise(childByClass(childByClass(rightMatter,"translation"),"inTranslation").value);
+	  }
+	  if (childByClass(rightMatter,"movements").getAttribute("enabled")=="true") {
+	      itemObject.movements=objectifyMovements(childByClass(rightMatter,"movements"));
+	      itemObject.movementStyle=sanitise(childByClass(childByClass(rightMatter,"movements"),"inMovementStyle").value);
+	  }
+	  if (childByClass(rightMatter,"soloists").getAttribute("enabled")=="true") {
+	      itemObject.soloists=objectifySoloists(childByClass(rightMatter,"soloists"));
+	  }
+	  if (childByClass(rightMatter,"otherInfo").getAttribute("enabled")=="true") {
+	      itemObject.otherInfo=sanitise(childByClass(childByClass(rightMatter,"otherInfo"),"inOtherInfo").value);
+	  }
+	  return itemObject;
+      }
+      function objectifyProgrammeContents(programmeContents) {
+	  var itemArray=[];
+	  for (var i = 0; i < programmeContents.childNodes.length; i++) {
+	      if (programmeContents.childNodes[i].className=="programmeItem") {
+		  itemArray.push(objectifyProgrammeItem(programmeContents.childNodes[i]));
+	      }
+	  }
+	  return itemArray;
+      }
+      function objectifyGeneralInfo(generalInfo) {
+	  var infoObject={};
+	  infoObject.name=sanitise(childByClass(generalInfo,"inConcertName").value);
+	  
+	  infoObject.time={};
+	  infoObject.time.hour=sanitise(childByClass(generalInfo,"inConcertHour").value);
+	  infoObject.time.minute=sanitise(childByClass(generalInfo,"inConcertMinute").value);
+	  
+	  infoObject.date={};
+	  infoObject.date.day=sanitise(childByClass(generalInfo,"inConcertDay").value);
+	  infoObject.date.month=sanitise(childByClass(generalInfo,"inConcertMonth").value);
+	  infoObject.date.year=sanitise(childByClass(generalInfo,"inConcertYear").value);
+	  
+	  infoObject.location=sanitise(childByClass(generalInfo,"inLocation").value);
+	  infoObject.streamed=String(childByClass(generalInfo,"inStreamed").checked);
+
+	  infoObject.performers=objectifyPerformers(childByClass(generalInfo,"performers"));
+	  
+	  if (childByClass(generalInfo,"programmeNotes").getAttribute("enabled")=="true") {
+	      infoObject.programmeNotes=sanitise(childByClass(childByClass(generalInfo,"programmeNotes"),"inProgrammeNotes").value);
+	  }
+	  return infoObject
+      }
+      function objectifyProgramme() {
+	  p={};
+	  p.generalInfo=objectifyGeneralInfo(document.getElementById("generalInfo"));
+	  p.programmeContents=objectifyProgrammeContents(document.getElementById("programmeContents"));
+	  return p;
+      }
+      function download(filename, text) {
+	  var element = document.createElement('a');
+	  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	  element.setAttribute('download', filename);
+
+	  element.style.display = 'none';
+	  document.body.appendChild(element);
+
+	  element.click();
+
+	  document.body.removeChild(element);
+      }
+      function downloadProgramme() {
+	  p=objectifyProgramme();
+	  n="tcms-"+p.generalInfo.date.year+"-"+p.generalInfo.date.month+"-"+p.generalInfo.date.day+"-"+p.generalInfo.time.hour+".json";
+	  s=JSON.stringify(p,null,2);
+	  download(n,s);
+      }
+      </script>
+
+  </body>
+</html>
