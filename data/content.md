@@ -6,6 +6,7 @@ If you are hoping to submit details for a TCMS programme, please use [this form]
 
 ## Works
 
+- [Connecting hypercube 1-factors](https://arxiv.org/abs/2508.15698), joint with Lawrence Hollom
 - [Minimal hypergraph non-jumps](https://arxiv.org/abs/2506.09620)
 - [New optima for the deletion shadow](https://arxiv.org/abs/2505.01131)
 - [Completely independent spanning trees in the hypercube](https://arxiv.org/abs/2412.11780)
