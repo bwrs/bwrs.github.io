@@ -4,8 +4,10 @@ I am a PhD student in combinatorics, supervised by Imre Leader, at Trinity Colle
 
 If you are hoping to submit details for a TCMS programme, please use [this form](../tcms).
 
-## Works
+## Papers
 
+- [Cuboids are canonically Ramsey](https://arxiv.org/abs/2603.02189)
+- [Counterexamples to conjectures on strong maximality and minimality](https://arxiv.org/abs/2511.13709), joint with Lawrence Hollom
 - [Connecting hypercube 1-factors](https://arxiv.org/abs/2508.15698), joint with Lawrence Hollom
 - [Minimal hypergraph non-jumps](https://arxiv.org/abs/2506.09620)
 - [New optima for the deletion shadow](https://arxiv.org/abs/2505.01131)
